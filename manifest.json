@@ -40,7 +40,7 @@
     },
     "navigator": {
       "readsConfig": [],
-      "readsMap": ["invariants", "evolutionTraps", "coverageGaps", "acceptedRisks", "plannedWork.decisionsOwed", "plannedWork.decisionsSettled"],
+      "readsMap": ["invariants", "evolutionTraps", "coverageGaps", "openDebt.acceptedRisks", "plannedWork.decisionsOwed", "plannedWork.decisionsSettled"],
       "writesMap": ["plannedWork.decisionsOwed", "plannedWork.decisionsSettled", "plannedWork.backlog"],
       "writesFiles": ["docs/app-maps/efforts/*.md"]
     },
@@ -61,7 +61,7 @@
     },
     "scope": {
       "readsConfig": [],
-      "readsMap": ["plannedWork.backlog", "plannedWork.decisionsSettled", "invariants", "evolutionTraps", "acceptedRisks"],
+      "readsMap": ["plannedWork.backlog", "plannedWork.decisionsSettled", "invariants", "evolutionTraps", "openDebt.acceptedRisks"],
       "writesMap": ["openDebt"]
     },
     "show-me-your-work": {

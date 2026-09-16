@@ -1,6 +1,6 @@
 # skills
 
-Agent skills for the Sprint Harness toolchain.
+Agent skills for the Sprint Harness Toolchain.
 
 A skill is a Markdown file describing a procedure precisely enough that an
 agent can follow it without improvising. These are the procedures used to plan,
@@ -74,7 +74,28 @@ config key does not mean grepping 27 files to find out what breaks.
 
 Keep it current. A skill that starts reading a config field or writing a map
 section without updating its row is the failure the file is there to prevent.
-`manifest.schema.json` validates the shape.
+`manifest.schema.json` validates the shape. Run `python3 check_manifest.py`
+to check that the README's `M` markers, `manifest.json`, the harness config
+schema, and the map skeleton still agree.
+
+## Shared contract
+
+This repository is one part of the Sprint Harness Toolchain. The shared
+cross-repo contract lives in
+[`../sprint-harness/docs/TOOLCHAIN.md`](../sprint-harness/docs/TOOLCHAIN.md).
+Use the glossary in [`../sprint-harness/CONTEXT.md`](../sprint-harness/CONTEXT.md)
+when naming shared concepts. Read both files before changing map sections,
+harness config keys, skill coupling, or shared vocabulary.
+
+Use this checklist for cross-repo changes:
+
+- If a skill starts reading or writing a map section, update `manifest.json` in
+  the same change.
+- If a skill starts reading a harness config key, update `manifest.json` in the
+  same change.
+- If the map shape changes, update affected skills after the
+  `sprint-harness` skeleton and `appmap-board` loader are updated.
+- If shared vocabulary changes, update `../sprint-harness/CONTEXT.md` first.
 
 ## Attribution
 
