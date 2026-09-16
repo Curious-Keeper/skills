@@ -1,0 +1,5 @@
+interface:
+  display_name: "Interrogate"
+  short_description: "Adversarial review across several models, one lead verdict"
+policy:
+  allow_implicit_invocation: false

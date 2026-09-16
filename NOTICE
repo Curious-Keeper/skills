@@ -1,0 +1,88 @@
+NOTICE
+======
+
+This repository is MIT licensed (see LICENSE). Portions of it derive from the
+works below, which are themselves MIT licensed. Some skills here were rewritten
+substantially; others remain close to their original. Because MIT requires the
+copyright notice to travel with substantial portions of the work, those notices
+are reproduced in full below rather than merely acknowledged.
+
+Neither author has reviewed or endorsed this repository.
+
+
+--------------------------------------------------------------------------
+mattpocock/skills — https://github.com/mattpocock/skills
+
+Skills derived from this work: codebase-design, code-review, designing,
+domain-modeling, handoff, implement, improve-codebase-architecture, prototype,
+research, tracer, whiteboard, writing-for-agents.
+
+`designing` and `whiteboard` both descend from the upstream `grill-me`.
+
+    MIT License
+
+    Copyright (c) 2026 Matt Pocock
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+
+
+--------------------------------------------------------------------------
+pstack, by Lauren Tan — https://github.com/cursor/plugins/tree/main/pstack
+
+Skills derived from this work: blast-radius, create-verification-skill, how,
+interrogate, laziness-protocol, maintain-verification-skill, no-comments,
+recall, redesign-from-first-principles, review-unpushed, show-me-your-work,
+technical-writing, unslop.
+
+`laziness-protocol` and `redesign-from-first-principles` correspond to the
+upstream `principle-laziness-protocol` and
+`principle-redesign-from-first-principles`. `review-unpushed` is a variant of
+`interrogate` and reuses its reference files, so it descends from pstack too.
+
+    MIT License
+
+    Copyright (c) 2026 Lauren Tan
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+
+Some pstack components derive in turn from Cursor's cursor-team-kit plugin,
+(c) 2026 Cursor, under the same MIT terms.
+
+
+--------------------------------------------------------------------------
+Ideas credited in place
+
+`codebase-design/DESIGN-IT-TWICE.md` follows "Design It Twice" from John
+Ousterhout, A Philosophy of Software Design.

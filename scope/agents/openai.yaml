@@ -1,0 +1,5 @@
+interface:
+  display_name: "Scope"
+  short_description: "Turn planned work into dispatchable map entries"
+policy:
+  allow_implicit_invocation: false

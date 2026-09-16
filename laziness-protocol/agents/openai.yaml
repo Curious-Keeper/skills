@@ -1,0 +1,5 @@
+interface:
+  display_name: "Laziness Protocol"
+  short_description: "Most result, least code; prefer deletion"
+policy:
+  allow_implicit_invocation: false

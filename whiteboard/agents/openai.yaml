@@ -1,0 +1,5 @@
+interface:
+  display_name: "Whiteboard"
+  short_description: "interview a design-board and write its docs"
+policy:
+  allow_implicit_invocation: false

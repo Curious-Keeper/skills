@@ -1,0 +1,6 @@
+ts	phase	decision	why	evidence	result
+2026-05-24T09:02:00Z	frame	counted the work first, about 100 components and 75 hours	wanted the size before starting a long run	commit 3a9f1c2	found 5 things to sort out first
+2026-05-24T09:40:00Z	harness	screenshotted the old version before changing anything	so old and new can be compared and any visual change caught	scripts/snapshot.sh, baseline/	saved 120 reference screenshots
+2026-05-24T11:15:00Z	S#2	moved the widget styles over without changing how it looks	keep the change small and the result identical	commit 7c21e0a, pixel-diff 0	accepted
+2026-05-24T12:30:00Z	S#2	threw out a helper's work because its screenshots were blank	checked the real files instead of trusting its summary	worktree reset	rejected, tightened the brief
+2026-05-24T14:05:00Z	S#4	stopped: the list virtualises, so pixel diff cannot see row 40 on	the check cannot reach the case, so a pass would mean nothing	.audit/s4-notes.md	INCONCLUSIVE

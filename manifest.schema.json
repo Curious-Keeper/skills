@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Curious-Keeper/skills/manifest.schema.json",
+  "title": "Workflow skill toolchain coupling manifest",
+  "type": "object",
+  "required": ["toolchain", "skills"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "$comment": { "type": "string" },
+    "toolchain": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "skills": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["readsConfig", "readsMap", "writesMap"],
+        "additionalProperties": false,
+        "properties": {
+          "readsConfig": { "type": "array", "items": { "type": "string" } },
+          "readsMap": { "type": "array", "items": { "type": "string" } },
+          "writesMap": { "type": "array", "items": { "type": "string" } },
+          "writesFiles": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

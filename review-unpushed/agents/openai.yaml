@@ -1,0 +1,5 @@
+interface:
+  display_name: "Review Unpushed"
+  short_description: "Cross-examine the commits that have not reached the remote yet"
+policy:
+  allow_implicit_invocation: false

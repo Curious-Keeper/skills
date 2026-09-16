@@ -1,0 +1,83 @@
+{
+  "$schema": "./manifest.schema.json",
+  "$comment": "Reviewable index of skill coupling to the Sprint Harness Toolchain. Keep this in sync when a skill starts reading a harness config field or reading/writing a map section.",
+  "toolchain": {
+    "glossary": "../sprint-harness/CONTEXT.md",
+    "mapGuide": "../sprint-harness/docs/MAP_GUIDE.md",
+    "projectConfig": ".claude/harness.config.json"
+  },
+  "skills": {
+    "blast-radius": {
+      "readsConfig": ["anchors"],
+      "readsMap": ["openDebt", "plannedWork.backlog", "plannedWork.decisionsSettled", "invariants", "evolutionTraps"],
+      "writesMap": []
+    },
+    "code-review": {
+      "readsConfig": [],
+      "readsMap": ["openDebt", "plannedWork.backlog", "plannedWork.decisionsSettled", "invariants", "evolutionTraps"],
+      "writesMap": []
+    },
+    "domain-modeling": {
+      "readsConfig": [],
+      "readsMap": ["plannedWork.decisionsSettled", "invariants", "evolutionTraps"],
+      "writesMap": ["plannedWork.decisionsSettled", "invariants", "evolutionTraps"],
+      "writesFiles": ["CONTEXT.md"]
+    },
+    "how": {
+      "readsConfig": ["anchors", "interrogate.reviewers", "models.roles.reviewer"],
+      "readsMap": ["architecture", "invariants", "evolutionTraps"],
+      "writesMap": []
+    },
+    "implement": {
+      "readsConfig": ["anchors"],
+      "readsMap": ["openDebt", "plannedWork.backlog"],
+      "writesMap": []
+    },
+    "interrogate": {
+      "readsConfig": ["interrogate.reviewers", "models.roles.reviewer"],
+      "readsMap": ["invariants", "evolutionTraps"],
+      "writesMap": []
+    },
+    "navigator": {
+      "readsConfig": [],
+      "readsMap": ["invariants", "evolutionTraps", "coverageGaps", "acceptedRisks", "plannedWork.decisionsOwed", "plannedWork.decisionsSettled"],
+      "writesMap": ["plannedWork.decisionsOwed", "plannedWork.decisionsSettled", "plannedWork.backlog"],
+      "writesFiles": ["docs/app-maps/efforts/*.md"]
+    },
+    "no-comments": {
+      "readsConfig": [],
+      "readsMap": ["plannedWork.decisionsSettled", "invariants", "evolutionTraps"],
+      "writesMap": []
+    },
+    "recall": {
+      "readsConfig": [],
+      "readsMap": ["plannedWork.decisionsSettled", "invariants", "evolutionTraps"],
+      "writesMap": []
+    },
+    "review-unpushed": {
+      "readsConfig": ["interrogate.reviewers", "models.roles.reviewer", "project.mainBranch", "project.remote"],
+      "readsMap": ["invariants", "evolutionTraps"],
+      "writesMap": []
+    },
+    "scope": {
+      "readsConfig": [],
+      "readsMap": ["plannedWork.backlog", "plannedWork.decisionsSettled", "invariants", "evolutionTraps", "acceptedRisks"],
+      "writesMap": ["openDebt"]
+    },
+    "show-me-your-work": {
+      "readsConfig": ["interrogate.reviewers", "models.roles.reviewer"],
+      "readsMap": [],
+      "writesMap": []
+    },
+    "technical-writing": {
+      "readsConfig": ["anchors"],
+      "readsMap": ["openDebt"],
+      "writesMap": []
+    },
+    "tracer": {
+      "readsConfig": [],
+      "readsMap": [],
+      "writesMap": []
+    }
+  }
+}

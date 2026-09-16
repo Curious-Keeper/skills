@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tracer"
+  short_description: "Order a plan into vertical slices you can touch"
+policy:
+  allow_implicit_invocation: false
