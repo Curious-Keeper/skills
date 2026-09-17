@@ -62,7 +62,7 @@ marks one that only runs when you invoke it.
 |`M` | `technical-writing` | Diátaxis, Google developer style, Simplified Technical English |
 |`MU`| `tracer` | Turn a plan into ordered vertical slices |
 |    | `unslop` | Cut AI tells from writing |
-|` U`| `whiteboard` | A relentless interview that leaves ADRs and a glossary behind |
+|` U`| `whiteboard` | A relentless interview over a live canvas, leaving ADRs and a glossary |
 |    | `writing-for-agents` | Writing documents that agents read |
 
 ## toolchain-manifest.json

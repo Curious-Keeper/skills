@@ -42,7 +42,8 @@
       "readsConfig": [],
       "readsMap": ["invariants", "evolutionTraps", "coverageGaps", "openDebt.acceptedRisks", "plannedWork.decisionsOwed", "plannedWork.decisionsSettled"],
       "writesMap": ["plannedWork.decisionsOwed", "plannedWork.decisionsSettled", "plannedWork.backlog"],
-      "writesFiles": ["docs/app-maps/efforts/*.md"]
+      "writesFiles": ["docs/app-maps/efforts/*.md",
+                      "docs/app-maps/efforts/*.excalidraw"]
     },
     "no-comments": {
       "readsConfig": [],
