@@ -11,7 +11,7 @@ and what has already gone wrong in it.
 Some skills stand alone and will work in any repo. Others read that map or the
 project's harness config, and are only fully useful alongside
 [`sprint-harness`](https://github.com/Curious-Keeper/sprint-harness).
-`manifest.json` records exactly which is which.
+`toolchain-manifest.json` records exactly which is which.
 
 ## Install
 
@@ -32,7 +32,7 @@ loaded by a non-Claude runtime rather than being locked to one vendor.
 
 ## What is here
 
-`M` marks a skill listed in `manifest.json` as coupled to the harness. `U`
+`M` marks a skill listed in `toolchain-manifest.json` as coupled to the harness. `U`
 marks one that only runs when you invoke it.
 
 | | Skill | What it does |
@@ -65,7 +65,11 @@ marks one that only runs when you invoke it.
 |` U`| `whiteboard` | A relentless interview that leaves ADRs and a glossary behind |
 |    | `writing-for-agents` | Writing documents that agents read |
 
-## manifest.json
+## toolchain-manifest.json
+
+**Not `manifest.json`.** This repo is symlinked to `~/.claude/skills`, and
+the agent harness owns that filename there: a `manifest.json` at this root
+gets deleted without warning, silently and repeatedly. Do not rename it back.
 
 The manifest is the reviewable index of how these skills touch the toolchain:
 for each one, which harness config keys it reads, which `APP_MAP.json` sections
@@ -74,8 +78,8 @@ config key does not mean grepping 27 files to find out what breaks.
 
 Keep it current. A skill that starts reading a config field or writing a map
 section without updating its row is the failure the file is there to prevent.
-`manifest.schema.json` validates the shape. Run `python3 check_manifest.py`
-to check that the README's `M` markers, `manifest.json`, the harness config
+`toolchain-manifest.schema.json` validates the shape. Run `python3 check_manifest.py`
+to check that the README's `M` markers, `toolchain-manifest.json`, the harness config
 schema, and the map skeleton still agree.
 
 ## Shared contract
@@ -89,10 +93,10 @@ harness config keys, skill coupling, or shared vocabulary.
 
 Use this checklist for cross-repo changes:
 
-- If a skill starts reading or writing a map section, update `manifest.json` in
-  the same change.
-- If a skill starts reading a harness config key, update `manifest.json` in the
-  same change.
+- If a skill starts reading or writing a map section, update
+  `toolchain-manifest.json` in the same change.
+- If a skill starts reading a harness config key, update
+  `toolchain-manifest.json` in the same change.
 - If the map shape changes, update affected skills after the
   `sprint-harness` skeleton and `appmap-board` loader are updated.
 - If shared vocabulary changes, update `../sprint-harness/CONTEXT.md` first.

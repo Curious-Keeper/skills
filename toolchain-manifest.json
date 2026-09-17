@@ -1,5 +1,5 @@
 {
-  "$schema": "./manifest.schema.json",
+  "$schema": "./toolchain-manifest.schema.json",
   "$comment": "Reviewable index of skill coupling to the Sprint Harness Toolchain. Keep this in sync when a skill starts reading a harness config field or reading/writing a map section.",
   "toolchain": {
     "glossary": "../sprint-harness/CONTEXT.md",
