@@ -9,7 +9,7 @@ ticket, blocked or not.
 This draws the Route table as a graph.
 
 **Read [`../../whiteboard/canvas/PROTOCOL.md`](../../whiteboard/canvas/PROTOCOL.md)
-first.** Read before you write, red is theirs, snapshot first, recolour rather
+first.** Read before you write, red is theirs, back up first, recolour rather
 than redraw. This file adds only what is specific to a route.
 
 ## What the graph shows
@@ -57,7 +57,10 @@ The Route table is the truth about nodes, edges and state. The canvas is the tru
 about annotations. Reconcile, never regenerate:
 
 1. If the canvas is empty, `import_scene` from
-   `docs/app-maps/efforts/<slug>.excalidraw` where one exists.
+   `docs/app-maps/efforts/<slug>.excalidraw` where one exists. **Only if it is
+   empty** — `import_scene` appends rather than replaces, so importing onto a
+   drawn canvas silently doubles the route. See the broken-tools table in the
+   protocol.
 2. `describe_scene`. Harvest every red element and every id you did not create —
    those are the user's and they survive this session untouched.
 3. Compare the ticket nodes against the Route table. `update_element` the stroke

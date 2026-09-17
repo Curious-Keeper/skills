@@ -22,7 +22,7 @@ unchanged. This skill adds a surface to them, and takes no decisions of its own.
 
 **Read [`canvas/PROTOCOL.md`](canvas/PROTOCOL.md) before drawing anything.** It
 holds the rules for sharing a canvas with someone who is drawing on it too: read
-before you write, red is theirs, snapshot first, recolour rather than redraw. They
+before you write, red is theirs, back up first, recolour rather than redraw. They
 are not optional and they are not repeated here.
 
 **The canvas is optional.** Where the `whiteboard` MCP server is not configured or

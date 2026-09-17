@@ -37,19 +37,43 @@ depends on what you just read, call `describe_scene` twice about four seconds
 apart. If the two differ, they are still working: say so and wait, rather than
 writing into a moving canvas.
 
-## Snapshot before you write
+## Back up before you write
 
 ```
-snapshot_scene      take one, then write
-restore_snapshot    if the write went wrong
+export_scene    filePath: <somewhere outside the repo>
 ```
 
-This is the undo for a canvas that has the user's work on it. Take one before any
-batch write and before `clear_canvas`.
+This is the undo, and it is the only one that works. Take one before any batch
+write.
 
-`clear_canvas` is two steps by design: called bare it returns a preview and a
-`clearToken`, and only a second call carrying that token deletes anything. Show
-the preview and get a real answer. Never spend the token on your own initiative.
+### Three tools are broken in sentinel 1.2.1. Do not trust them.
+
+The server requires `?confirm=true` on its delete route. Three MCP tools call
+that route without it, and none of them checks the response, so the delete
+fails with a 400 that is thrown away and the tool reports success anyway.
+
+| tool | what it does instead | verified |
+|---|---|---|
+| `clear_canvas` | clears nothing; errors on the confirm step | yes |
+| `restore_snapshot` | re-adds the snapshot, removes nothing, reports success | yes — held at 9 while reporting 6 restored |
+| `import_scene` | appends to the canvas rather than replacing it | by inspection, same call site |
+
+So: **`restore_snapshot` is not an undo.** It re-adds what was in the snapshot
+and leaves everything else in place. **`import_scene` is safe only into an empty
+canvas.** To repair a bad write, delete the offending ids with `delete_element`,
+which does work, and rebuild from an `export_scene` file.
+
+To genuinely clear a canvas, go around the MCP server to the REST API, and get
+a real answer from the user first — this deletes their work as well as yours:
+
+```sh
+curl -X DELETE -H "x-tenant-id: <id>" \
+     "http://127.0.0.1:3000/api/elements/clear?confirm=true"
+```
+
+Each workspace is its own tenant, so clearing "the canvas" may mean clearing
+several. `list_tenants` shows them; the count in `/health` covers only the
+active one.
 
 ## Red is theirs
 
