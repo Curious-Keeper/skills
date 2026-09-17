@@ -44,6 +44,7 @@ services:
       # the same thing to you, to the agent, and to `export_scene`. Add a line
       # per repo that should be able to save a .excalidraw file.
       - ${WHITEBOARD_WORKSPACE:-/home/definitelynotnsa/git_projects/sprint-harness}:${WHITEBOARD_WORKSPACE:-/home/definitelynotnsa/git_projects/sprint-harness}
+      - /home/definitelynotnsa/git_projects/agent-bar:/home/definitelynotnsa/git_projects/agent-bar
 
 volumes:
   canvas-db:
