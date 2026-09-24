@@ -47,5 +47,3 @@ Flag what the user should pay attention to before they trust this result. Four t
 - **Flags.** One per line, each naming the row or timestamp, what is wrong, and what the user should check. Ordered worst first.
 - **Missing rows.** Decisions you can see in the run evidence that never made it into the trail.
 - **Holds up.** Briefly, the parts that are genuinely well evidenced, so the user knows where not to spend time.
-
-Keep it under 400 words.

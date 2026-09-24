@@ -42,4 +42,4 @@ Find out what the code in your slice actually does, and report it with citations
 - **Surprises.** Anything that contradicts the grounding above, or that a reader would guess wrong.
 - **Not found.** What you looked for and did not find, and what you searched.
 
-Keep it under 400 words. The parent is joining several of these.
+The parent joins several of these into one context, so return only this shape, with no preamble, and quote only the lines a claim rests on. The files stay with you.
