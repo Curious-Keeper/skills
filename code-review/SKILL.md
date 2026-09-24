@@ -75,7 +75,7 @@ Each smell reads _what it is_ → _how to fix_; match it against the diff:
 
 - The diff command and commit list.
 - The repo's documented invariants, pasted in full.
-- The brief: "For each invariant, say whether you checked it and what you found. Default to reject: say an invariant holds only where you positively confirmed it in the diff, and say plainly which ones the diff gave you no way to check. An invariant with deliberate exclusions is not violated by the excluded case. Findings only, with no preamble or restated diff: this report reaches the user verbatim."
+- The brief: "For each invariant, say whether you checked it and what you found. Default to reject: say an invariant holds only where you positively confirmed it in the diff, and say plainly which ones the diff gave you no way to check. An invariant with deliberate exclusions is not violated by the excluded case. No preamble or restated diff: this report reaches the user verbatim."
 
 If the spec is missing, skip the Spec sub-agent and note this in the final report. If the repo documents no invariants, skip that sub-agent and say so. An invented invariant list is worse than none.
 
