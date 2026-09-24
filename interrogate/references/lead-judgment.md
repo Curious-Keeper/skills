@@ -53,6 +53,6 @@ Be especially careful about dismissing security findings and correctness bugs. T
 
 ## Verdict calibration
 
-A good verdict is useful, not comprehensive. The user should be able to read the "Act On" section, fix those issues, and ship with confidence. If your "Act On" list has more than 5 items, you're probably not filtering hard enough.
+A good verdict is useful, not comprehensive. The user should be able to read the "Act On" section, fix those issues, and ship with confidence. An item belongs in "Act On" only if it would block a real PR on its own; anything weaker moves to "Consider".
 
 The "Dismissed" section is not busywork. It's a trust mechanism. Showing the user what you rejected and why lets them override your judgment where they disagree. This is more valuable than hiding the rejected findings.

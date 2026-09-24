@@ -63,19 +63,19 @@ Each smell reads _what it is_ → _how to fix_; match it against the diff:
 
 - The full diff command and commit list.
 - The list of standards-source files you found in step 3, **plus the smell baseline from step 3** pasted in full (the sub-agent has no other access to it).
-- The brief: "Report, per file/hunk where relevant, (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls: documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words."
+- The brief: "Report, per file/hunk where relevant, (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls: documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Findings only, with no preamble or restated diff: this report reaches the user verbatim."
 
 **Spec sub-agent prompt** should include:
 
 - The diff command and commit list.
 - The path or fetched contents of the spec.
-- The brief: "Report: (a) requirements the spec asked for that are missing or partial; (b) behaviour in the diff that wasn't asked for (scope creep); (c) requirements that look implemented but where the implementation looks wrong; (d) **stale evidence**. Where the spec cites `file:line`, check the citation still says what it claims, and report it as a finding against the spec rather than against the diff. Quote the spec line for each finding. Under 400 words."
+- The brief: "Report: (a) requirements the spec asked for that are missing or partial; (b) behaviour in the diff that wasn't asked for (scope creep); (c) requirements that look implemented but where the implementation looks wrong; (d) **stale evidence**. Where the spec cites `file:line`, check the citation still says what it claims, and report it as a finding against the spec rather than against the diff. Quote the spec line for each finding. Findings only, with no preamble or restated diff: this report reaches the user verbatim."
 
 **Invariants sub-agent prompt** should include:
 
 - The diff command and commit list.
 - The repo's documented invariants, pasted in full.
-- The brief: "For each invariant, say whether you checked it and what you found. Default to reject: say an invariant holds only where you positively confirmed it in the diff, and say plainly which ones the diff gave you no way to check. An invariant with deliberate exclusions is not violated by the excluded case. Under 400 words."
+- The brief: "For each invariant, say whether you checked it and what you found. Default to reject: say an invariant holds only where you positively confirmed it in the diff, and say plainly which ones the diff gave you no way to check. An invariant with deliberate exclusions is not violated by the excluded case. Findings only, with no preamble or restated diff: this report reaches the user verbatim."
 
 If the spec is missing, skip the Spec sub-agent and note this in the final report. If the repo documents no invariants, skip that sub-agent and say so. An invented invariant list is worse than none.
 

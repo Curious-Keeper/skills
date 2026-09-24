@@ -66,7 +66,7 @@ Lead with the model, not the tour. A reader who stops after the first paragraph 
 
 ## Output contract
 
-- **The model.** At most 5 bullets. The concepts and invariants that make this subsystem predictable.
+- **The model.** The handful of concepts and invariants that make this subsystem predictable.
 - **The path.** The traced hops in order, each with a real `file:line` and what it does. For a placement question, the candidate owners with the seam each one implies.
 - **Where the model leaks.** The special cases, the hop that is not where you would expect it, the thing the names lie about.
 - **Unknowns.** What you could not establish, and where the trace stopped. Never pad this into certainty.

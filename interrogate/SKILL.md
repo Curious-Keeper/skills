@@ -22,10 +22,10 @@ One reviewer per entry. Extend or shrink the Reviewer A/B/C/D labels to the conf
 
 | Reviewer | Default family and tier | Example slug |
 |---|---|---|
-| Reviewer A | Claude, highest reasoning tier | `claude-opus-5` |
+| Reviewer A | Claude, Opus tier | `claude-opus-5` |
 | Reviewer B | GPT, highest reasoning tier | `gpt-5.6` |
 | Reviewer C | Grok, fast tier | `grok-4.6-fast` |
-| Reviewer D | Claude, second family member | `claude-fable-5` |
+| Reviewer D | Claude, Fable tier | `claude-fable-5-1` |
 
 Slugs rot faster than anything else here, so the configured roster wins over this table, and the table is examples rather than a contract. Where the configured value is `inherit-parent` or `auto`, pin no model at all rather than treating the alias as a broken slug.
 
