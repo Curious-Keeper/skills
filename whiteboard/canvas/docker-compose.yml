@@ -1,0 +1,50 @@
+# The whiteboard canvas. One long-lived container, two roles:
+#
+#   PID 1                the Excalidraw canvas + SQLite, on http://127.0.0.1:3000
+#   docker exec -i ...   an MCP server per agent session, over stdio
+#
+# Both halves are the same process tree, so they share one database and one
+# filesystem. The canvas outlives any single agent session.
+#
+#   docker compose up -d --build     start it
+#   docker compose logs -f canvas    watch it
+#   docker compose down              stop it (the drawing survives, in the volume)
+
+services:
+  canvas:
+    build:
+      context: .
+      args:
+        SENTINEL_VERSION: "1.2.1"
+    image: whiteboard-canvas:1.2.1
+    container_name: whiteboard-canvas
+    restart: unless-stopped
+
+    # Must match the host user that owns the repos in the bind mount below, or
+    # every exported .excalidraw file lands owned by root. The image's `node`
+    # user is uid/gid 1000, which is the common case; change this if yours is not.
+    user: "1000:1000"
+
+    # Loopback only. The canvas has no authentication in this configuration
+    # (see EXCALIDRAW_API_KEY in the upstream README), so it must not be
+    # reachable off this machine.
+    ports:
+      - "127.0.0.1:3000:3000"
+
+    environment:
+      HOST: "0.0.0.0"
+      CANVAS_PORT: "3000"
+      EXCALIDRAW_DB_PATH: "/data/excalidraw.db"
+      ALLOWED_ORIGINS: "http://localhost:3000,http://127.0.0.1:3000"
+
+    volumes:
+      - canvas-db:/data
+
+      # Mounted at the SAME path it has on the host, so that a file path means
+      # the same thing to you, to the agent, and to `export_scene`. Add a line
+      # per repo that should be able to save a .excalidraw file.
+      - ${WHITEBOARD_WORKSPACE:-/home/definitelynotnsa/git_projects/sprint-harness}:${WHITEBOARD_WORKSPACE:-/home/definitelynotnsa/git_projects/sprint-harness}
+      - /home/definitelynotnsa/git_projects/agent-bar:/home/definitelynotnsa/git_projects/agent-bar
+
+volumes:
+  canvas-db:

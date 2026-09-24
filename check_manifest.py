@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check that manifest.json stays aligned with the toolchain contracts."""
+"""Check that toolchain-manifest.json stays aligned with the toolchain contracts."""
 
 from __future__ import annotations
 
@@ -11,6 +11,10 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parent
+
+# Not "manifest.json". This repo is symlinked to ~/.claude/skills, where the
+# agent harness owns that filename and deletes anything else wearing it.
+MANIFEST = "toolchain-manifest.json"
 
 
 def _toolchain_root() -> Path | None:
@@ -128,19 +132,25 @@ def _contract_paths() -> tuple[set[str], set[str], list[str]]:
 
 
 def check() -> list[str]:
-    manifest = _load_json(ROOT / "manifest.json")
+    path = ROOT / MANIFEST
+    if not path.exists():
+        return [
+            f"{MANIFEST} is missing. It is tracked, so restore it with:\n"
+            f"    git checkout -- {MANIFEST}",
+        ]
+    manifest = _load_json(path)
     errors = _check_shape(manifest)
 
     listed = set(manifest.get("skills", {}))
     coupled = _readme_coupled_skills()
     for name in sorted(coupled - listed):
-        errors.append(f"README marks {name} as harness-coupled, but manifest.json omits it")
+        errors.append(f"README marks {name} as harness-coupled, but {MANIFEST} omits it")
     for name in sorted(listed - coupled):
-        errors.append(f"manifest.json lists {name}, but README does not mark it with M")
+        errors.append(f"{MANIFEST} lists {name}, but README does not mark it with M")
 
     for name in sorted(listed):
         if not (ROOT / name / "SKILL.md").exists():
-            errors.append(f"manifest.json lists {name}, but {name}/SKILL.md does not exist")
+            errors.append(f"{MANIFEST} lists {name}, but {name}/SKILL.md does not exist")
 
     map_paths, config_paths, contract_errors = _contract_paths()
     errors.extend(contract_errors)

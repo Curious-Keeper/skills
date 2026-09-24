@@ -76,6 +76,14 @@ a different destination, if this effort overrides the default>
 
 The Route table is the only place blocking is recorded. `decisionsOwed` has no dependency field, and inventing one would change the skeleton and the board's rendering. The cost is real and worth naming: the board's DECIDE lane shows every open ticket, blocked or not, so the board tells you what is owed and the Route table tells you what is takeable.
 
+### Draw it
+
+A column of ids is not a shape. Where the `whiteboard` MCP server is configured, render the Route table as a graph on the live canvas: one node per ticket, one edge per blocking relation, colour for whether a ticket is takeable and shape for whether it needs a human. The heavy-stroked nodes are the HITL ones, and everything reachable only through them is time the user cannot be away — which is the question an effort is usually really being asked.
+
+Read [`references/route-canvas.md`](references/route-canvas.md) before drawing. Draw at the end of charting (step 5) and again when loading an effort (step 1), and export it beside the effort doc so it commits with the map. The canvas reads back what the user drew on it, but it never writes the map: an annotation becomes a proposal, and the steps below still do the writing.
+
+Without that server, skip it. Nothing here depends on the picture.
+
 ### The ticket
 
 One entry in `plannedWork.decisionsOwed.items`, in the shape the maps already use:

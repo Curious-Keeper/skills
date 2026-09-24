@@ -1,5 +1,5 @@
 interface:
   display_name: "Whiteboard"
-  short_description: "interview a design-board and write its docs"
+  short_description: "Interview a design over a live canvas, and write its docs"
 policy:
   allow_implicit_invocation: false
