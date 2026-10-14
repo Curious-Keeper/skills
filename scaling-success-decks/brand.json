@@ -1,9 +1,13 @@
 {
   "org": "Scaling Success",
   "url": "scalingsuccess.io",
-  "colors": { "accent": "#696763", "night": "#080705" },
+  "colors": {
+    "accent": "#696763",
+    "night": "#080705"
+  },
   "qr": "qr.svg",
   "qr_alt": "QR code to connect with Scaling Success",
   "qr_label": "Let's connect",
-  "voice": "Informal but polished. Short sentences, short examples. Lead with actionable steps the room can use today.\n\nOn slides: one short line per idea, or a numbered list (a `steps` slide). Never bullets on a slide. Bullet points are fine in speaker notes."
+  "voice": "Informal but polished. Short sentences, short examples. Lead with actionable steps the room can use today.\n\nOn slides: one short line per idea, or a numbered list (a `steps` slide). Never bullets on a slide. Bullet points are fine in speaker notes.",
+  "logo": "logo.svg"
 }
